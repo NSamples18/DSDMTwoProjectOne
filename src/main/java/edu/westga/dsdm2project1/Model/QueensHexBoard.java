@@ -1,4 +1,6 @@
-package edu.westga.dsdm2project1;
+package edu.westga.dsdm2project1.Model;
+
+import edu.westga.dsdm2project1.Coordinate;
 
 import java.util.Collection;
 

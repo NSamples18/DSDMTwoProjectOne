@@ -1,4 +1,4 @@
-package edu.westga.dsdm2project1;
+package edu.westga.dsdm2project1.View;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
