@@ -5,27 +5,33 @@ import edu.westga.dsdm2project1.Coordinate;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Hexboard class implements the QueensHexBoard Interface
+ * this class is designed to be the businness logic class behind our board
+ * @author Justice Ricks
+ * @version fall 2026
+ */
 public class HexBoard implements QueensHexBoard {
-    private final int boardsize;
-    private final int raduis;
+    private final int boardSize;
+    private final int radius;
     private final Collection<Coordinate> queens;
     private final  Collection<Coordinate> boardCoordinates;
 
-    public HexBoard(int boardsize, int raduis, Collection<Coordinate> queens, Collection<Coordinate> boardCoordinates) {
-        this.boardsize = boardsize;
-        this.raduis = raduis;
+    public HexBoard(int boardSize, int radius, Collection<Coordinate> queens, Collection<Coordinate> boardCoordinates) {
+        this.boardSize = boardSize;
+        this.radius = radius;
         this.queens = queens;
         this.boardCoordinates = boardCoordinates;
     }
 
     @Override
     public int getRadius() {
-        return this.raduis;
+        return this.radius;
     }
 
     @Override
     public int getBoardSize() {
-        return this.boardsize;
+        return this.boardSize;
     }
 
     @Override
@@ -35,12 +41,12 @@ public class HexBoard implements QueensHexBoard {
 
     @Override
     public Collection<Coordinate> getBoardCoordinates() {
-        return List.of();
+        return List.copyOf(this.boardCoordinates);
     }
 
     @Override
     public Collection<Coordinate> getQueens() {
-        return List.of();
+        return List.copyOf(this.queens);
     }
 
     @Override
