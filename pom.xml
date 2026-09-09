@@ -83,7 +83,7 @@
 
                         <configuration>
                             <mainClass>
-                                edu.westga.dsdm2project1/edu.westga.dsdm2project1.View.HelloApplication
+                                edu.westga.dsdm2project1/edu.westga.dsdm2project1.Main
                             </mainClass>
 
                             <launcher>app</launcher>
