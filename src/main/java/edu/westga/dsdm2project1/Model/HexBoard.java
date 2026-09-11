@@ -74,8 +74,7 @@ public class HexBoard implements QueensHexBoard {
         }
 
         for (Coordinate queen : this.queens) {
-            if (!queen.equals(coordinate)
-                    && this.isSameHexLine(queen, coordinate)) {
+            if (this.isSameHexLine(queen, coordinate)) {
                 return true;
             }
         }

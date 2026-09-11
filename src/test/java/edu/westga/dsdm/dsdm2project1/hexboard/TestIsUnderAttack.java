@@ -97,11 +97,11 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testQueenOwnCellIsNotUnderAttack() {
+    public void testQueenOwnCellIsUnderAttack() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
-        assertFalse(board.isUnderAttack(new Coordinate(0, 0)));
+        assertTrue(board.isUnderAttack(new Coordinate(0, 0)));
     }
 
     @Test
