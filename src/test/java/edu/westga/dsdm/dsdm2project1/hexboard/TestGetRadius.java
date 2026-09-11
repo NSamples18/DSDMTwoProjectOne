@@ -9,17 +9,17 @@ import edu.westga.dsdm2project1.Model.HexBoard;
 public class TestGetRadius {
 
     @Test
-     void testRadiusOfSmallestBoard() {
+    void testRadiusOfSmallestBoard() {
         assertEquals(0, new HexBoard(1).getRadius());
     }
 
     @Test
-     void testRadiusIsOneLessThanSize() {
+    void testRadiusIsOneLessThanSize() {
         assertEquals(1, new HexBoard(2).getRadius());
     }
 
     @Test
-     void testRadiusOfLargerBoard() {
+    void testRadiusOfLargerBoard() {
         assertEquals(5, new HexBoard(6).getRadius());
     }
 }

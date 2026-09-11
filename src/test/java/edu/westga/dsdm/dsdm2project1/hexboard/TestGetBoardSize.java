@@ -10,17 +10,17 @@ import edu.westga.dsdm2project1.Model.HexBoard;
 public class TestGetBoardSize {
 
     @Test
-     void testSmallestBoardSize() {
+    void testSmallestBoardSize() {
         assertEquals(1, new HexBoard(1).getBoardSize());
     }
 
     @Test
-     void testTypicalBoardSize() {
+    void testTypicalBoardSize() {
         assertEquals(6, new HexBoard(6).getBoardSize());
     }
 
     @Test
-     void testSizeUnchangedAfterPlacingQueen() {
+    void testSizeUnchangedAfterPlacingQueen() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 

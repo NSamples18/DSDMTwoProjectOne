@@ -32,7 +32,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testSameZIsAttack() {
+    void testSameZIsAttack() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
@@ -40,7 +40,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testEqualXMinusYIsAttack() {
+    void testEqualXMinusYIsAttack() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
@@ -48,7 +48,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testEqualXMinusZIsAttack() {
+    void testEqualXMinusZIsAttack() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
@@ -56,7 +56,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testEqualYMinusZIsAttack() {
+    void testEqualYMinusZIsAttack() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
@@ -64,7 +64,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testSpecificationExampleIsAttack() {
+    void testSpecificationExampleIsAttack() {
         HexBoard board = new HexBoard(3);
         board.setQueen(new Coordinate(2, 0));
 
@@ -80,7 +80,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testAttackIsSymmetric() {
+    void testAttackIsSymmetric() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(2, -1));
 
@@ -88,7 +88,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testCellIsSafeAfterQueenRemoved() {
+    void testCellIsSafeAfterQueenRemoved() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
         board.unsetQueen(new Coordinate(0, 0));
@@ -105,7 +105,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testOffBoardCellIsNotUnderAttack() {
+    void testOffBoardCellIsNotUnderAttack() {
         HexBoard board = new HexBoard(2);
         board.setQueen(new Coordinate(0, 0));
 
@@ -113,7 +113,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-     void testNullIsNotUnderAttack() {
+    void testNullIsNotUnderAttack() {
         assertFalse(new HexBoard(4).isUnderAttack(null));
     }
 }
