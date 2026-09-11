@@ -10,12 +10,12 @@ import edu.westga.dsdm2project1.Model.HexBoard;
 public class TestGetNumberQueens {
 
     @Test
-     void testNewBoardHasNoQueens() {
+    void testNewBoardHasNoQueens() {
         assertEquals(0, new HexBoard(4).getNumberQueens());
     }
 
     @Test
-     void testCountAfterOneQueen() {
+    void testCountAfterOneQueen() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
@@ -23,7 +23,7 @@ public class TestGetNumberQueens {
     }
 
     @Test
-     void testCountAfterTwoNonAttackingQueens() {
+    void testCountAfterTwoNonAttackingQueens() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
         board.setQueen(new Coordinate(1, -3));
@@ -32,7 +32,7 @@ public class TestGetNumberQueens {
     }
 
     @Test
-     void testRejectedQueenDoesNotChangeCount() {
+    void testRejectedQueenDoesNotChangeCount() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
         board.setQueen(new Coordinate(0, 1));

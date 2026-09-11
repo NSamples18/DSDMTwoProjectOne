@@ -15,12 +15,12 @@ import edu.westga.dsdm2project1.Model.HexBoard;
 public class TestGetQueens {
 
     @Test
-     void testNewBoardHasNoQueens() {
+    void testNewBoardHasNoQueens() {
         assertTrue(new HexBoard(4).getQueens().isEmpty());
     }
 
     @Test
-     void testContainsPlacedQueen() {
+    void testContainsPlacedQueen() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 
@@ -31,7 +31,7 @@ public class TestGetQueens {
     }
 
     @Test
-     void testDoesNotContainRemovedQueen() {
+    void testDoesNotContainRemovedQueen() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
         board.unsetQueen(new Coordinate(0, 0));
@@ -40,10 +40,9 @@ public class TestGetQueens {
     }
 
     @Test
-     void testReturnedCollectionIsUnmodifiable() {
+    void testReturnedCollectionIsUnmodifiable() {
         Collection<Coordinate> queens = new HexBoard(4).getQueens();
 
-        assertThrows(UnsupportedOperationException.class,
-                () -> queens.add(new Coordinate(0, 0)));
+        assertThrows(UnsupportedOperationException.class, () -> queens.add(new Coordinate(0, 0)));
     }
 }
