@@ -33,7 +33,7 @@ public class HexQueensView {
     private Label queenCountLabel;
 
     /**
-     * Initializes the view and sets up the ViewModel.
+     * Initializes the view and sets up the ViewModel .
      * Also is a handler for the new board button.
      *
      * @param actionEvent the action event
