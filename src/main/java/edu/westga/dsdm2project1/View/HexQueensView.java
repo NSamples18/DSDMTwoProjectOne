@@ -13,7 +13,7 @@ import javafx.scene.layout.Pane;
  */
 public class HexQueensView {
 
-    private HexBoardViewModel viewModel;
+    private HexBoardViewModel viewModel = new HexBoardViewModel(3);
     @FXML
     private Pane boardPane;
 
@@ -35,6 +35,8 @@ public class HexQueensView {
     /**
      * Initializes the view and sets up the ViewModel.
      * Also is a handler for the new board button.
+     *
+     * @param actionEvent the action event
      */
     @FXML
     public void handleNewBoard(ActionEvent actionEvent) {
@@ -49,8 +51,10 @@ public class HexQueensView {
 
             this.viewModel.createBoard(boardSize);
 
+            int numberOfCells = this.viewModel.getBoardCoordinates().size();
+
             this.queenCountLabel.setText("Queens: 0");
-            this.messageLabel.setText("");
+            this.messageLabel.setText("Created board with " + numberOfCells + " cells.");
             this.boardPane.getChildren().clear();
 
         } catch (NumberFormatException exception) {
