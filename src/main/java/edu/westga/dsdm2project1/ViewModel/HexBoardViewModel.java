@@ -126,4 +126,39 @@ public class HexBoardViewModel {
     public double getCurrentCellSize() {
         return this.currentCellSize.get();
     }
+
+    /**
+     * Removes the queen on the given cell if there is one, otherwise places a
+     * queen there if it is legal to do so.
+     *
+     * @param coordinate the cell that was clicked
+     * @return true if the board changed, false otherwise
+     */
+    public boolean toggleQueen(Coordinate coordinate) {
+        if (this.board.hasQueen(coordinate)) {
+            this.board.unsetQueen(coordinate);
+            this.queenCount.set(this.board.getNumberQueens());
+            this.message.set("");
+            return true;
+        }
+
+        if (!this.board.setQueen(coordinate)) {
+            this.message.set("That cell is under attack.");
+            return false;
+        }
+
+        this.queenCount.set(this.board.getNumberQueens());
+        this.message.set("");
+        return true;
+    }
+
+    /**
+     * Checks whether the given cell holds a queen.
+     *
+     * @param coordinate the cell to check
+     * @return true if the cell holds a queen
+     */
+    public boolean hasQueen(Coordinate coordinate) {
+        return this.board.hasQueen(coordinate);
+    }
 }
