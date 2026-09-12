@@ -106,9 +106,8 @@ public class HexQueensView {
     }
 
     private void handleCellClicked(Coordinate coordinate) {
-        if (this.viewModel.toggleQueen(coordinate)) {
-            this.renderBoard();
-        }
+        this.viewModel.toggleQueen(coordinate);
+        this.renderBoard();
     }
 
     private Polygon createHexagon(Coordinate coordinate, double cellSize, double offsetX, double offsetY) {
@@ -128,7 +127,9 @@ public class HexQueensView {
         hexagon.setLayoutY(centerY + offsetY);
 
         if (this.viewModel.hasQueen(coordinate)) {
-            hexagon.setStyle("-fx-fill: gold;" + "-fx-stroke: black;" + "-fx-stroke-width: 1;");
+            hexagon.setStyle("-fx-fill: gold;" + "-fx-stroke: black;" + "-fx-stroke-width: 2;");
+        } else if (this.viewModel.isUnderAttack(coordinate)) {
+            hexagon.setStyle("-fx-fill: indianred;" + "-fx-stroke: black;" + "-fx-stroke-width: 1;");
         } else {
             hexagon.setStyle("-fx-fill: orange;" + "-fx-stroke: black;" + "-fx-stroke-width: 1;");
         }

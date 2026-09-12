@@ -132,24 +132,22 @@ public class HexBoardViewModel {
      * queen there if it is legal to do so.
      *
      * @param coordinate the cell that was clicked
-     * @return true if the board changed, false otherwise
      */
-    public boolean toggleQueen(Coordinate coordinate) {
+    public void toggleQueen(Coordinate coordinate) {
         if (this.board.hasQueen(coordinate)) {
             this.board.unsetQueen(coordinate);
             this.queenCount.set(this.board.getNumberQueens());
             this.message.set("");
-            return true;
+            return;
         }
 
         if (!this.board.setQueen(coordinate)) {
             this.message.set("That cell is under attack.");
-            return false;
+            return;
         }
 
         this.queenCount.set(this.board.getNumberQueens());
         this.message.set("");
-        return true;
     }
 
     /**
@@ -160,5 +158,15 @@ public class HexBoardViewModel {
      */
     public boolean hasQueen(Coordinate coordinate) {
         return this.board.hasQueen(coordinate);
+    }
+
+    /**
+     * Checks whether the given cell is under attack by a queen.
+     *
+     * @param coordinate the cell to check
+     * @return true if the cell is under attack
+     */
+    public boolean isUnderAttack(Coordinate coordinate) {
+        return this.board.isUnderAttack(coordinate);
     }
 }
