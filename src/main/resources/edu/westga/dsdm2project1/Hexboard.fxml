@@ -10,27 +10,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.westga.dsdm2project1.View.HexQueensView"
-            prefWidth="760" prefHeight="680">
+<BorderPane prefHeight="680" prefWidth="760" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edu.westga.dsdm2project1.View.HexQueensView">
     <top>
         <VBox spacing="8.0">
             <padding>
-                <Insets top="12.0" right="12.0" bottom="12.0" left="12.0"/>
+                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0"/>
             </padding>
-            <HBox spacing="8.0" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
                 <Label text="Board size:"/>
-                <TextField fx:id="boardSizeField" text="6" prefColumnCount="4"/>
+                <TextField fx:id="boardSizeField" prefColumnCount="4" text="6"/>
                 <Label text="Cell size:"/>
-                <TextField fx:id="cellSizeField" text="30" prefColumnCount="4"/>
-                <Button fx:id="newBoardButton" text="New Board" onAction="#handleNewBoard"/>
+                <TextField fx:id="cellSizeField" prefColumnCount="4" text="30"/>
+                <Button fx:id="newBoardButton" onAction="#handleNewBoard" text="New Board"/>
             </HBox>
             <Label fx:id="messageLabel" style="-fx-text-fill: firebrick;"/>
             <Label fx:id="queenCountLabel" text="Queens: 0"/>
         </VBox>
     </top>
     <center>
-        <ScrollPane fitToWidth="true" fitToHeight="true">
+        <ScrollPane fitToHeight="true" fitToWidth="true">
             <content>
                 <Pane fx:id="boardPane"/>
             </content>

@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import edu.westga.dsdm2project1.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 
+/**
+ * Test class for the isUnderAttack method of the HexBoard class.
+ */
 public class TestIsUnderAttack {
 
     @Test
@@ -97,7 +100,7 @@ public class TestIsUnderAttack {
     }
 
     @Test
-    public void testQueenOwnCellIsUnderAttack() {
+    void testQueenOwnCellIsUnderAttack() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
 

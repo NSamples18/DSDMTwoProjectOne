@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import edu.westga.dsdm2project1.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 
+/**
+ * Test class for the getNumberQueens method of the HexBoard class.
+ */
 public class TestGetNumberQueens {
 
     @Test
@@ -41,7 +44,7 @@ public class TestGetNumberQueens {
     }
 
     @Test
-    public void testCountAfterRemovingQueen() {
+    void testCountAfterRemovingQueen() {
         HexBoard board = new HexBoard(4);
         board.setQueen(new Coordinate(0, 0));
         board.unsetQueen(new Coordinate(0, 0));

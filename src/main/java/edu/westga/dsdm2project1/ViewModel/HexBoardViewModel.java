@@ -18,7 +18,8 @@ public class HexBoardViewModel {
     private final IntegerProperty queenCount;
     private final ObservableList<Coordinate> boardCoordinates;
     private final DoubleProperty currentCellSize;
-/**
+
+    /**
      * Constructs a new HexBoardViewModel with default values.
      */
     public HexBoardViewModel() {

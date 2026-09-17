@@ -12,6 +12,9 @@ import org.junit.jupiter.api.Test;
 import edu.westga.dsdm2project1.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 
+/**
+ * Test class for the getQueens method of the HexBoard class.
+ */
 public class TestGetQueens {
 
     @Test

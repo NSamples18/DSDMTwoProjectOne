@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.dsdm2project1.Model.HexBoard;
 
+/**
+ * Test class for the getBoardSize method of the HexBoard class.
+ */
 public class TestGetBoardSize {
 
     @Test

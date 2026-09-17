@@ -1,3 +1,6 @@
+/**
+ * JavaFX App.
+ */
 module edu.westga.dsdm2project {
     requires javafx.controls;
     requires javafx.fxml;

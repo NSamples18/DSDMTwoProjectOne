@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.dsdm2project1.Model.HexBoard;
 
+/**
+ * Test class for the getRadius method of the HexBoard class.
+ */
 public class TestGetRadius {
 
     @Test
