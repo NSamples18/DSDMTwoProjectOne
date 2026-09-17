@@ -1,7 +1,7 @@
 /**
  * JavaFX App.
  */
-module edu.westga.dsdm2project {
+module edu.westga.dsdm2project1 {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.junit.jupiter.api;
