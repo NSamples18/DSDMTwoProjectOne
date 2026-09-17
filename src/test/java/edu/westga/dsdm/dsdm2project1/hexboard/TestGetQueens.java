@@ -9,7 +9,7 @@ import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.dsdm2project1.Coordinate;
+import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 
 /**

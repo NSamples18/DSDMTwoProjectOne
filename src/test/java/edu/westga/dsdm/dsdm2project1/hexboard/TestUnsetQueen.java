@@ -1,6 +1,6 @@
 package edu.westga.dsdm.dsdm2project1.hexboard;
 
-import edu.westga.dsdm2project1.Coordinate;
+import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 import org.junit.jupiter.api.Test;
 

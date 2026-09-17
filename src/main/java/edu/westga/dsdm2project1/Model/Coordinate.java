@@ -1,4 +1,4 @@
-package edu.westga.dsdm2project1;
+package edu.westga.dsdm2project1.Model;
 
 import java.util.Objects;
 

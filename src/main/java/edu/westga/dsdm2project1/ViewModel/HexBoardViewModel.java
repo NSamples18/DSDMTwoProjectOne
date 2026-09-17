@@ -1,6 +1,6 @@
 package edu.westga.dsdm2project1.ViewModel;
 
-import edu.westga.dsdm2project1.Coordinate;
+import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 
 import javafx.beans.property.*;

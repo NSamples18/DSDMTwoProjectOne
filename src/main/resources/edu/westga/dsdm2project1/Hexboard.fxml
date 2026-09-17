@@ -22,7 +22,7 @@
                 <TextField fx:id="boardSizeField" prefColumnCount="4" text="6"/>
                 <Label text="Cell size:"/>
                 <TextField fx:id="cellSizeField" prefColumnCount="4" text="30"/>
-                <Button fx:id="newBoardButton" onAction="#handleNewBoard" text="New Board"/>
+                <Button onAction="#handleNewBoard" text="New Board"/>
             </HBox>
             <Label fx:id="messageLabel" style="-fx-text-fill: firebrick;"/>
             <Label fx:id="queenCountLabel" text="Queens: 0"/>
@@ -30,9 +30,7 @@
     </top>
     <center>
         <ScrollPane fitToHeight="true" fitToWidth="true">
-            <content>
-                <Pane fx:id="boardPane"/>
-            </content>
+            <Pane fx:id="boardPane"/>
         </ScrollPane>
     </center>
 </BorderPane>

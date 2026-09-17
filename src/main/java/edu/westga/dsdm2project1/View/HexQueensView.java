@@ -1,6 +1,6 @@
 package edu.westga.dsdm2project1.View;
 
-import edu.westga.dsdm2project1.Coordinate;
+import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.ViewModel.HexBoardViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,7 +13,7 @@ import javafx.scene.shape.Polygon;
  */
 public class HexQueensView {
 
-    private HexBoardViewModel viewModel = new HexBoardViewModel();
+    private final HexBoardViewModel viewModel = new HexBoardViewModel();
     @FXML
     private Pane boardPane;
 
@@ -89,14 +89,13 @@ public class HexQueensView {
 
         double boardHeight = maxY - minY;
 
-        double offsetX = (this.boardPane.getWidth() - boardWidth) / 2.0 - minX;
+        this.boardPane.setMinSize(boardWidth + 2 * cellSize, boardHeight + 2 * cellSize);
 
-        double offsetY = (this.boardPane.getHeight() - boardHeight) / 2.0 - minY;
+        double offsetX = Math.max((this.boardPane.getWidth() - boardWidth) / 2.0, cellSize) - minX;
 
-        /*
-         * Second pass:
-         * Create and position every hexagon.
-         */
+        double offsetY = Math.max((this.boardPane.getHeight() - boardHeight) / 2.0, cellSize) - minY;
+
+
         for (Coordinate coordinate : this.viewModel.getBoardCoordinates()) {
 
             Polygon hexagon = this.createHexagon(coordinate, cellSize, offsetX, offsetY);
@@ -134,7 +133,7 @@ public class HexQueensView {
             hexagon.setStyle("-fx-fill: orange;" + "-fx-stroke: black;" + "-fx-stroke-width: 1;");
         }
 
-        hexagon.setOnMouseClicked(event -> this.handleCellClicked(coordinate));
+        hexagon.setOnMouseClicked(_ -> this.handleCellClicked(coordinate));
 
         return hexagon;
     }

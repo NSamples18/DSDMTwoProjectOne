@@ -2,7 +2,7 @@ package edu.westga.dsdm.dsdm2project1.hexboard;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import edu.westga.dsdm2project1.Coordinate;
+import edu.westga.dsdm2project1.Model.Coordinate;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.dsdm2project1.Model.HexBoard;
