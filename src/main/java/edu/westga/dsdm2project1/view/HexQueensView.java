@@ -1,7 +1,7 @@
-package edu.westga.dsdm2project1.View;
+package edu.westga.dsdm2project1.view;
 
-import edu.westga.dsdm2project1.Model.Coordinate;
-import edu.westga.dsdm2project1.ViewModel.HexBoardViewModel;
+import edu.westga.dsdm2project1.model.Coordinate;
+import edu.westga.dsdm2project1.viewmodel.HexBoardViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -94,7 +94,6 @@ public class HexQueensView {
         double offsetX = Math.max((this.boardPane.getWidth() - boardWidth) / 2.0, cellSize) - minX;
 
         double offsetY = Math.max((this.boardPane.getHeight() - boardHeight) / 2.0, cellSize) - minY;
-
 
         for (Coordinate coordinate : this.viewModel.getBoardCoordinates()) {
 

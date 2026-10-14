@@ -8,8 +8,8 @@ module edu.westga.dsdm2project1 {
 
     opens edu.westga.dsdm2project1 to javafx.fxml;
     exports edu.westga.dsdm2project1;
-    exports edu.westga.dsdm2project1.View;
-    opens edu.westga.dsdm2project1.View to javafx.fxml;
-    exports edu.westga.dsdm2project1.Model;
-    opens edu.westga.dsdm2project1.Model;
+    exports edu.westga.dsdm2project1.view;
+    opens edu.westga.dsdm2project1.view to javafx.fxml;
+    exports edu.westga.dsdm2project1.model;
+    opens edu.westga.dsdm2project1.model;
 }

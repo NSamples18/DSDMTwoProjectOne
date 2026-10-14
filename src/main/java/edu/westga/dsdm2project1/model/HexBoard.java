@@ -1,4 +1,4 @@
-package edu.westga.dsdm2project1.Model;
+package edu.westga.dsdm2project1.model;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -123,4 +123,5 @@ public class HexBoard implements QueensHexBoard {
                 || first.x() - firstZ == second.x() - secondZ
                 || first.y() - firstZ == second.y() - secondZ;
     }
+
 }

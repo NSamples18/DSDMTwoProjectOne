@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.dsdm2project1.Model.HexBoard;
+import edu.westga.dsdm2project1.model.HexBoard;
 
 /**
  * Test class for the HexBoard class.

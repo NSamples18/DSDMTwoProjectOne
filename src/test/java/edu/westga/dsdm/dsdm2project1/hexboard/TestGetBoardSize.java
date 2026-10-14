@@ -2,10 +2,10 @@ package edu.westga.dsdm.dsdm2project1.hexboard;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import edu.westga.dsdm2project1.Model.Coordinate;
+import edu.westga.dsdm2project1.model.Coordinate;
 import org.junit.jupiter.api.Test;
 
-import edu.westga.dsdm2project1.Model.HexBoard;
+import edu.westga.dsdm2project1.model.HexBoard;
 
 /**
  * Test class for the getBoardSize method of the HexBoard class.
