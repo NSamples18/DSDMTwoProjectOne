@@ -9,8 +9,8 @@ import java.util.Collection;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.dsdm2project1.Model.Coordinate;
-import edu.westga.dsdm2project1.Model.HexBoard;
+import edu.westga.dsdm2project1.model.Coordinate;
+import edu.westga.dsdm2project1.model.HexBoard;
 
 /**
  * Test class for the getQueens method of the HexBoard class.

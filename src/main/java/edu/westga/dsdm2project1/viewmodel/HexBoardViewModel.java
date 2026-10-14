@@ -1,7 +1,7 @@
-package edu.westga.dsdm2project1.ViewModel;
+package edu.westga.dsdm2project1.viewmodel;
 
-import edu.westga.dsdm2project1.Model.Coordinate;
-import edu.westga.dsdm2project1.Model.HexBoard;
+import edu.westga.dsdm2project1.model.Coordinate;
+import edu.westga.dsdm2project1.model.HexBoard;
 
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefHeight="680" prefWidth="760" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="edu.westga.dsdm2project1.View.HexQueensView">
+            fx:controller="edu.westga.dsdm2project1.view.HexQueensView">
     <top>
         <VBox spacing="8.0">
             <padding>

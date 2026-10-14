@@ -1,6 +1,6 @@
 package testHexBoardViewModel;
 
-import edu.westga.dsdm2project1.ViewModel.HexBoardViewModel;
+import edu.westga.dsdm2project1.viewmodel.HexBoardViewModel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
