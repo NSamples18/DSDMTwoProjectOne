@@ -48,4 +48,15 @@ public class TestGetQueens {
 
         assertThrows(UnsupportedOperationException.class, () -> queens.add(new Coordinate(0, 0)));
     }
+
+    @Test
+    void testGetQueensAfterOffCenterQueenIsPlaced() {
+        HexBoard board = new HexBoard(4);
+        Coordinate coordinate = new Coordinate(1, -1);
+
+        board.setQueen(coordinate);
+
+        assertEquals(1, board.getQueens().size());
+        assertTrue(board.getQueens().contains(coordinate));
+    }
 }

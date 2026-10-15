@@ -29,6 +29,17 @@ public class TestHasQueen {
     }
 
     @Test
+    void testHasQueenAfterOffCenterQueenIsPlaced() {
+        HexBoard board = new HexBoard(4);
+        Coordinate coordinate = new Coordinate(1, -1);
+
+        board.setQueen(coordinate);
+
+        assertTrue(board.hasQueen(coordinate));
+        assertFalse(board.hasQueen(new Coordinate(-1, 1)));
+    }
+
+    @Test
     void testDoesNotHaveQueenAfterQueenIsRemoved() {
         HexBoard board = new HexBoard(4);
         Coordinate coordinate = new Coordinate(0, 0);

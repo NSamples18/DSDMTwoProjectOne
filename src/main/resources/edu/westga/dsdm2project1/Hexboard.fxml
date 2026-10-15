@@ -24,7 +24,7 @@
                 <TextField fx:id="cellSizeField" prefColumnCount="4" text="30"/>
                 <Label text="Repetitions (k):"/>
                 <TextField fx:id="repetitionsField" prefColumnCount="4"/>
-                <Button onAction="#handleNewBoard" text="New Board"/>
+                <Button onAction="#handleNewBoard" text="Solve Board"/>
             </HBox>
             <Label fx:id="messageLabel" style="-fx-text-fill: firebrick;"/>
             <Label fx:id="queenCountLabel" text="Queens: 0"/>
