@@ -1,8 +1,9 @@
 package edu.westga.dsdm2project1.viewmodel;
 
-import edu.westga.dsdm2project1.model.Coordinate;
-import edu.westga.dsdm2project1.model.HexBoard;
+import edu.westga.dsdm2project1.Model.Coordinate;
+import edu.westga.dsdm2project1.Model.HexBoard;
 
+import edu.westga.dsdm2project1.Model.ProbabilisticQueenSolver;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +19,8 @@ public class HexBoardViewModel {
     private final IntegerProperty queenCount;
     private final ObservableList<Coordinate> boardCoordinates;
     private final DoubleProperty currentCellSize;
+    private final StringProperty repetitions;
+    private final ProbabilisticQueenSolver solver;
 
     /**
      * Constructs a new HexBoardViewModel with default values.
@@ -27,6 +30,8 @@ public class HexBoardViewModel {
         this.cellSize = new SimpleStringProperty("30");
         this.currentCellSize = new SimpleDoubleProperty(30.0);
         this.message = new SimpleStringProperty("");
+        this.repetitions = new SimpleStringProperty("100");
+        this.solver = new ProbabilisticQueenSolver();
 
         this.queenCount = new SimpleIntegerProperty(0);
 
@@ -45,32 +50,35 @@ public class HexBoardViewModel {
     }
 
     /**
-     * Creates a new HexBoard based on the current board size and cell size properties.
-     * If the board size or cell size is invalid, an appropriate message is set.
+     * Creates a new HexBoard based on the current board size, cell size, and
+     * repetitions properties, then places a starting set of non-attacking queens
+     * found by the probabilistic solver.
+     * If any input is invalid, an appropriate message is set.
      */
     public void createBoard() {
         try {
             int newBoardSize = Integer.parseInt(this.boardSize.get());
-
             double newCellSize = Double.parseDouble(this.cellSize.get());
+            int newRepetitions = Integer.parseInt(this.repetitions.get());
 
-            if (newBoardSize < 1 || newCellSize <= 0) {
-                this.message.set("Board size and cell size must be greater than 0.");
+            if (newBoardSize < 1 || newCellSize <= 0 || newRepetitions < 1) {
+                this.message.set("Board size, cell size, and repetitions must be greater than 0.");
                 return;
             }
 
             this.board = new HexBoard(newBoardSize);
-
             this.currentCellSize.set(newCellSize);
-            this.boardCoordinates.setAll(this.board.getBoardCoordinates());
-            this.queenCount.set(this.board.getNumberQueens());
 
-            int numberOfCells = this.board.getBoardCoordinates().size();
+            for (Coordinate queen : this.solver.solve(newBoardSize, newRepetitions)) {
+                this.board.setQueen(queen);
+            }
 
-            this.message.set("Created board with " + numberOfCells + " cells.");
+            this.refreshBoardState();
+
+            this.message.set("Placed " + this.board.getNumberQueens() + " queens.");
 
         } catch (NumberFormatException exception) {
-            this.message.set("Board size and cell size must be numbers.");
+            this.message.set("Board size, cell size, and repetitions must be numbers.");
         }
     }
 
@@ -169,5 +177,10 @@ public class HexBoardViewModel {
      */
     public boolean isUnderAttack(Coordinate coordinate) {
         return this.board.isUnderAttack(coordinate);
+    }
+
+    public Property<String> repetitionsProperty() {
+
+        return this.repetitions;
     }
 }

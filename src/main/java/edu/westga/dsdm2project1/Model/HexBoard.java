@@ -1,4 +1,4 @@
-package edu.westga.dsdm2project1.model;
+package edu.westga.dsdm2project1.Model;
 
 import java.util.Collection;
 import java.util.HashSet;
