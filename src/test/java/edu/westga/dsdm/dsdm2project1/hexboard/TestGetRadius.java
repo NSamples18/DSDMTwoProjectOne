@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import edu.westga.dsdm2project1.model.HexBoard;
+import edu.westga.dsdm2project1.Model.HexBoard;
 
 /**
  * Test class for the getRadius method of the HexBoard class.

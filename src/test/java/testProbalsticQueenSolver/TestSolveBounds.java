@@ -1,7 +1,7 @@
 package testProbalsticQueenSolver;
 
-import edu.westga.dsdm2project1.model.Coordinate;
-import edu.westga.dsdm2project1.model.ProbabilisticQueenSolver;
+import edu.westga.dsdm2project1.Model.Coordinate;
+import edu.westga.dsdm2project1.Model.ProbabilisticQueenSolver;
 
 import org.junit.jupiter.api.Test;
 

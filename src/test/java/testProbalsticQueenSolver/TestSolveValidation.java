@@ -1,6 +1,6 @@
 package testProbalsticQueenSolver;
 
-import edu.westga.dsdm2project1.model.ProbabilisticQueenSolver;
+import edu.westga.dsdm2project1.Model.ProbabilisticQueenSolver;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

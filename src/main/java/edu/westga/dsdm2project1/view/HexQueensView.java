@@ -1,6 +1,6 @@
 package edu.westga.dsdm2project1.view;
 
-import edu.westga.dsdm2project1.model.Coordinate;
+import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.viewmodel.HexBoardViewModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -29,6 +29,9 @@ public class HexQueensView {
     @FXML
     private Label queenCountLabel;
 
+    @FXML
+    private TextField repetitionsField;
+
     /**
      * Initializes the view and sets up the ViewModel.
      */
@@ -37,6 +40,7 @@ public class HexQueensView {
         this.boardSizeField.textProperty().bindBidirectional(this.viewModel.boardSizeProperty());
         this.cellSizeField.textProperty().bindBidirectional(this.viewModel.cellSizeProperty());
         this.messageLabel.textProperty().bindBidirectional(this.viewModel.messageProperty());
+        this.repetitionsField.textProperty().bindBidirectional(this.viewModel.repetitionsProperty());
         this.queenCountLabel.textProperty().bind(this.viewModel.queenCountProperty().asString("Queens: %d"));
     }
 
