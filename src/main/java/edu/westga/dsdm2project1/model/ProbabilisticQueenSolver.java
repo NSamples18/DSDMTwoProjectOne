@@ -123,7 +123,7 @@ public class ProbabilisticQueenSolver {
             List<Coordinate> safeCells = new ArrayList<>();
 
             for (Coordinate cell : remaining) {
-                if (!occupied.isUnderAttack(cell)) {
+                if (!occupied.IsUnderAttack(cell)) {
                     safeCells.add(cell);
                 }
             }
@@ -217,7 +217,7 @@ public class ProbabilisticQueenSolver {
             Set<Coordinate> queens,
             AttackLines occupied) {
 
-        if (!occupied.isUnderAttack(cell)
+        if (!occupied.IsUnderAttack(cell)
                 && queens.add(cell)) {
 
             occupied.record(cell);
@@ -240,7 +240,7 @@ public class ProbabilisticQueenSolver {
         /**
          * Checks whether a cell is under attack.
          */
-        boolean isUnderAttack(Coordinate cell) {
+        boolean IsUnderAttack(Coordinate cell) {
 
             int x = cell.x();
             int y = cell.y();
