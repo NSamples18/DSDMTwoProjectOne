@@ -5,6 +5,8 @@ module edu.westga.dsdm2project1 {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.junit.jupiter.api;
+    requires org.jgrapht.core;
+    requires org.jgrapht.io;
 
     opens edu.westga.dsdm2project1 to javafx.fxml;
     exports edu.westga.dsdm2project1;
