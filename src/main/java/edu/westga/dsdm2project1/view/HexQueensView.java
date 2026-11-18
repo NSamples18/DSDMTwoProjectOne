@@ -3,6 +3,7 @@ package edu.westga.dsdm2project1.view;
 import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.viewmodel.HexBoardViewModel;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -32,6 +33,12 @@ public class HexQueensView {
     @FXML
     private TextField repetitionsField;
 
+    @FXML
+    private ComboBox<String> starterAlgorithmBox;
+
+    @FXML
+    private TextField timeLimitField;
+
     /**
      * Initializes the view and sets up the ViewModel.
      */
@@ -42,6 +49,15 @@ public class HexQueensView {
         this.messageLabel.textProperty().bindBidirectional(this.viewModel.messageProperty());
         this.repetitionsField.textProperty().bindBidirectional(this.viewModel.repetitionsProperty());
         this.queenCountLabel.textProperty().bind(this.viewModel.queenCountProperty().asString("Queens: %d"));
+        this.starterAlgorithmBox.getItems().setAll(HexBoardViewModel.NONE, HexBoardViewModel.PROBABILISTIC, HexBoardViewModel.CLIQUE);
+
+        this.starterAlgorithmBox.valueProperty().bindBidirectional(this.viewModel.starterAlgorithmProperty());
+
+        this.timeLimitField.textProperty().bindBidirectional(this.viewModel.timeLimitSecondsProperty());
+
+        this.repetitionsField.disableProperty().bind(this.viewModel.starterAlgorithmProperty().isNotEqualTo(HexBoardViewModel.PROBABILISTIC));
+
+        this.timeLimitField.disableProperty().bind(this.viewModel.starterAlgorithmProperty().isNotEqualTo(HexBoardViewModel.CLIQUE));
     }
 
     /**
