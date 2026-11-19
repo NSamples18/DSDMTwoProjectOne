@@ -1,5 +1,6 @@
 package edu.westga.dsdm2project1.viewmodel;
 
+import edu.westga.dsdm2project1.Model.CliqueQueensSolver;
 import edu.westga.dsdm2project1.Model.Coordinate;
 import edu.westga.dsdm2project1.Model.HexBoard;
 
@@ -21,6 +22,20 @@ public class HexBoardViewModel {
     private final DoubleProperty currentCellSize;
     private final StringProperty repetitions;
     private final ProbabilisticQueenSolver solver;
+    /**
+     * Constants for the starter algorithm options.
+     */
+    public static final String NONE = "None";
+    /**
+     * Constants for the starter algorithm options.
+     */
+    public static final String PROBABILISTIC = "Probabilistic";
+    /**
+     * Constants for the starter algorithm options.
+     */
+    public static final String CLIQUE = "CLIQUE";
+    private final StringProperty starterAlgorithm = new SimpleStringProperty(NONE);
+    private final StringProperty timeLimitSeconds = new SimpleStringProperty("5");
 
     /**
      * Constructs a new HexBoardViewModel with default values.
@@ -56,30 +71,105 @@ public class HexBoardViewModel {
      * If any input is invalid, an appropriate message is set.
      */
     public void createBoard() {
-        try {
-            int newBoardSize = Integer.parseInt(this.boardSize.get());
-            double newCellSize = Double.parseDouble(this.cellSize.get());
-            int newRepetitions = Integer.parseInt(this.repetitions.get());
+        int newBoardSize;
+        double newCellSize;
 
-            if (newBoardSize < 1 || newCellSize <= 0 || newRepetitions < 1) {
-                this.message.set("Board size, cell size, and repetitions must be greater than 0.");
+        try {
+            newBoardSize = Integer.parseInt(this.boardSize.get().trim());
+            newCellSize = Double.parseDouble(this.cellSize.get().trim());
+        } catch (NumberFormatException exception) {
+            this.message.set("Board size and cell size must be numbers.");
+            return;
+        }
+
+        if (newBoardSize < 1 || !Double.isFinite(newCellSize) || newCellSize <= 0) {
+            this.message.set("Board size and cell size must be greater than 0.");
+            return;
+        }
+
+        HexBoard newBoard = new HexBoard(newBoardSize);
+        String resultMessage;
+
+        switch (this.starterAlgorithm.get()) {
+            case NONE -> {
+                int cellCount = newBoard.getBoardCoordinates().size();
+                resultMessage = "Created board with " + cellCount + " cells.";
+            }
+
+            case PROBABILISTIC -> {
+                int attempts;
+                try {
+                    attempts = Integer.parseInt(this.repetitions.get().trim());
+                } catch (NumberFormatException exception) {
+                    this.message.set("Repetitions must be a positive whole number.");
+                    return;
+                }
+
+                if (attempts < 1) {
+                    this.message.set("Repetitions must be a positive whole number.");
+                    return;
+                }
+
+                for (Coordinate queen : this.solver.solve(newBoardSize, attempts)) {
+                    newBoard.setQueen(queen);
+                }
+
+                resultMessage = "Placed " + newBoard.getNumberQueens() + " queens.";
+            }
+
+            case CLIQUE -> {
+                long seconds;
+                try {
+                    seconds = Long.parseLong(this.timeLimitSeconds.get().trim());
+                } catch (NumberFormatException exception) {
+                    this.message.set("Time limit must be a positive whole number of seconds.");
+                    return;
+                }
+
+                if (seconds < 1) {
+                    this.message.set("Time limit must be a positive whole number of seconds.");
+                    return;
+                }
+
+                CliqueQueensSolver cliqueSolver = new CliqueQueensSolver(newBoardSize, seconds);
+                for (Coordinate queen : cliqueSolver.solve()) {
+                    newBoard.setQueen(queen);
+                }
+
+                resultMessage = "Placed " + newBoard.getNumberQueens() + " queens.";
+                if (cliqueSolver.isTimeLimitReached()) {
+                    resultMessage += " CLIQUE search reached the time limit.";
+                }
+            }
+
+            default -> {
+                this.message.set("Select a starter algorithm.");
                 return;
             }
-
-            this.board = new HexBoard(newBoardSize);
-            this.currentCellSize.set(newCellSize);
-
-            for (Coordinate queen : this.solver.solve(newBoardSize, newRepetitions)) {
-                this.board.setQueen(queen);
-            }
-
-            this.refreshBoardState();
-
-            this.message.set("Placed " + this.board.getNumberQueens() + " queens.");
-
-        } catch (NumberFormatException exception) {
-            this.message.set("Board size, cell size, and repetitions must be numbers.");
         }
+
+        this.board = newBoard;
+        this.currentCellSize.set(newCellSize);
+        this.refreshBoardState();
+        this.message.set(resultMessage);
+    }
+
+    /**
+     * Returns the property for the starter algorithm.
+     *
+     * @return the property for the starter algorithm
+     */
+    public StringProperty starterAlgorithmProperty() {
+        return this.starterAlgorithm;
+    }
+
+    /**
+     * Returns the CLIQUE time limit entered by the user, in seconds.
+     *
+     * @return the property for the time limit
+     */
+    public StringProperty timeLimitSecondsProperty() {
+        return this.timeLimitSeconds;
     }
 
     /**
@@ -179,6 +269,12 @@ public class HexBoardViewModel {
         return this.board.isUnderAttack(coordinate);
     }
 
+    /**
+     * Returns the property for the number of repetitions for the probabilistic
+     * solver.
+     *
+     * @return the property for the number of repetitions
+     */
     public Property<String> repetitionsProperty() {
 
         return this.repetitions;
