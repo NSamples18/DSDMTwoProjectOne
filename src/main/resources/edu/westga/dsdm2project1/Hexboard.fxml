@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefHeight="680" prefWidth="760"
@@ -40,8 +41,12 @@
         </VBox>
     </top>
     <center>
-        <ScrollPane fitToHeight="true" fitToWidth="true">
-            <Pane fx:id="boardPane"/>
+        <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true">
+            <StackPane minWidth="-Infinity" minHeight="-Infinity">
+                <Pane fx:id="boardPane"
+                      minWidth="-Infinity" minHeight="-Infinity"
+                      maxWidth="-Infinity" maxHeight="-Infinity"/>
+            </StackPane>
         </ScrollPane>
     </center>
 </BorderPane>
